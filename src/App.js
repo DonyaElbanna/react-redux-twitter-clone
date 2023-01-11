@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { handleInitialData } from "./actions/shared";
 import TweetList from "./components/TweetList";
 import HashLoader from "react-spinners/HashLoader";
+// import AddTweet from "./components/AddTweet";
+import LeftPanel from "./components/LeftPanel";
+import RightPanel from "./components/RightPanel";
 
 function App() {
   const override: CSSProperties = {
@@ -22,9 +25,19 @@ function App() {
   return (
     <div>
       {!state.authedUser ? (
-        <HashLoader color="#1DA1F2" cssOverride={override} size={70} speedMultiplier={2.5}/>
+        <HashLoader
+          color="#1DA1F2"
+          cssOverride={override}
+          size={70}
+          speedMultiplier={2.5}
+        />
       ) : (
-        <TweetList tweetsArr={tweets} />
+        <div className="display">
+          <LeftPanel />
+          
+          <TweetList tweetsArr={tweets} />
+          <RightPanel/>
+        </div>
       )}
     </div>
   );

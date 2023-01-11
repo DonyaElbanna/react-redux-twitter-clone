@@ -1,9 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { formatTweet, formatDate } from "../utils/helpers";
-import { TiArrowBackOutline } from "react-icons/ti";
+import { FaRegComment } from "react-icons/fa";
+import { AiOutlineRetweet } from "react-icons/ai";
 import { TiHeartOutline } from "react-icons/ti";
 import { TiHeartFullOutline } from "react-icons/ti";
+import {BsCircleFill} from "react-icons/bs";
+import {BsShareFill} from "react-icons/bs";
 
 const Tweet = ({ tweet }) => {
   const state = useSelector((state) => state);
@@ -15,7 +18,7 @@ const Tweet = ({ tweet }) => {
     state.authedUser,
     parentTweet
   );
-//   console.log(tweet);
+  // console.log(tweet);
 
   const {
     avatar,
@@ -27,6 +30,7 @@ const Tweet = ({ tweet }) => {
     replies,
     text,
     timestamp,
+    authorID,
   } = tweet;
 
   const toParent = (e, id) => {
@@ -45,7 +49,10 @@ const Tweet = ({ tweet }) => {
       <div className="tweet-info">
         <div>
           <span>{name}</span>
-          <div>{formatDate(timestamp)}</div>
+          <span>@{authorID}</span>
+          <BsCircleFill style={{ fontSize: "4px", margin: "3px" }}/>
+          <span className="time-span">{formatDate(timestamp)}</span>
+          <div>
           {parent && (
             <button
               className="replying-to"
@@ -54,20 +61,34 @@ const Tweet = ({ tweet }) => {
               replying to @{parent.author}
             </button>
           )}
+          </div>
           <p>{text}</p>
         </div>
 
         <div className="tweet-icons">
-          <TiArrowBackOutline className="tweet-icon" />
-          <span>{replies !== 0 && replies}</span>
-          <button className="heart-button" onClick={likeTweet}>
+          <div className="icons">
+            <FaRegComment
+              style={{ fontSize: "22px", marginRight: "3px" }}
+              className="tweet-icon"
+            />
+            <span className="reply-span">{replies !== 0 && replies}</span>
+          </div>
+          <div className="icons">
+            <AiOutlineRetweet className="tweet-icon" />
+          </div>
+          <div className="icons">
             {hasLiked ? (
-              <TiHeartFullOutline color="#e0245e" className="tweet-icon" />
+              <TiHeartFullOutline
+                color="#e0245e"
+                className="tweet-icon"
+                onClick={likeTweet}
+              />
             ) : (
-              <TiHeartOutline className="tweet-icon" />
+              <TiHeartOutline className="tweet-icon" onClick={likeTweet} />
             )}
-          </button>
-          <span>{likes !== 0 && likes}</span>
+            <span className="heart-span">{likes !== 0 && likes}</span>
+          </div>
+            <BsShareFill style={{fontSize: "20px"}} className="tweet-icon"/>
         </div>
       </div>
     </div>

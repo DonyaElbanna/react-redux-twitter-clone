@@ -1,8 +1,8 @@
 let users = {
   sarah_edo: {
-    id: "sarah_edo",
+    authorID: "sarah_edo",
     name: "Sarah Drasner",
-    avatarURL: "https://tylermcginnis.com/would-you-rather/sarah.jpg",
+    avatarURL: "https://i.postimg.cc/cJz4MCct/3.jpg",
     tweets: [
       "8xf0y6ziyjabvozdd253nd",
       "hbsc73kzqi75rg7v1e0i6a",
@@ -12,9 +12,9 @@ let users = {
     ],
   },
   tylermcginnis: {
-    id: "tylermcginnis",
+    authorID: "tylermcginnis",
     name: "Tyler McGinnis",
-    avatarURL: "https://tylermcginnis.com/would-you-rather/tyler.jpg",
+    avatarURL: "https://i.postimg.cc/25ySZhnf/2.jpg",
     tweets: [
       "5c9qojr2d1738zlx09afby",
       "f4xzgapq7mu783k9t02ghx",
@@ -27,9 +27,9 @@ let users = {
     ],
   },
   dan_abramov: {
-    id: "dan_abramov",
+    authorID: "dan_abramov",
     name: "Dan Abramov",
-    avatarURL: "https://tylermcginnis.com/would-you-rather/dan.jpg",
+    avatarURL: "https://i.postimg.cc/K8Zzmdzj/1.jpg",
     tweets: [
       "5w6k1n34dkp1x29cuzn2zn",
       "czpa59mg577x1oo45cup0d",
