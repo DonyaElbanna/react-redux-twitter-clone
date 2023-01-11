@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Description
+
+A twitter clone app.
+
+## Technologies used
+
+- [React](https://reactjs.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [React-Redux](https://react-redux.js.org/)
+- [Redux](https://redux.js.org/)
+- [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- [React Spinners](https://www.davidhu.io/react-spinners/)
+- [React icons](https://react-icons.github.io/react-icons/)
+
 ## Available Scripts
 
 In the project directory, you can run:
