@@ -1,7 +1,6 @@
 import React from "react";
 import Tweet from "./Tweet";
 // import { useSelector } from "react-redux";
-// import LoadingBar from "react-redux-loading-bar";
 
 const TweetList = ({ tweetsArr }) => {
   //   const tweets = useSelector((state) => state.tweets);
