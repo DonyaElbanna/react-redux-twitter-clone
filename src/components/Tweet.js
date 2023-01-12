@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { formatTweet, formatDate } from "../utils/helpers";
 import { asyncToggleTweet } from "../actions/tweets";
@@ -7,12 +6,13 @@ import { AiOutlineRetweet } from "react-icons/ai";
 import { TiHeartOutline, TiHeartFullOutline } from "react-icons/ti";
 import { BsCircleFill, BsShareFill } from "react-icons/bs";
 import NewTweet from "./NewTweet";
+import HideReply from "./HideReply";
 
 const Tweet = ({ tweet }) => {
   const state = useSelector((state) => state);
   const parentTweet = useSelector((state) => state.tweets[tweet.replyingTo]);
   const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
+
   //   console.log(parentTweet)
   tweet = formatTweet(
     tweet,
@@ -52,9 +52,7 @@ const Tweet = ({ tweet }) => {
     );
   };
 
-  const showNewTweet = () => {
-    setVisible(!visible);
-  };
+  const { ref, display, setDisplay } = HideReply(false);
 
   return (
     <div>
@@ -84,7 +82,7 @@ const Tweet = ({ tweet }) => {
               <FaRegComment
                 style={{ fontSize: "22px", marginRight: "3px" }}
                 className="tweet-icon"
-                onClick={showNewTweet}
+                onClick={() => setDisplay(true)}
               />
               <span className="reply-span">{replies !== 0 && replies}</span>
             </div>
@@ -107,7 +105,7 @@ const Tweet = ({ tweet }) => {
           </div>
         </div>
       </div>
-      {visible && <NewTweet />}
+      <div ref={ref}>{display && <NewTweet setDisplay={setDisplay} />}</div>
     </div>
   );
 };

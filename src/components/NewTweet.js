@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NewTweet = () => {
+const NewTweet = ({ setDisplay }) => {
   const [reply, setReply] = useState("");
 
   const handleChange = (e) => {
@@ -11,10 +11,11 @@ const NewTweet = () => {
     e.preventDefault();
     console.log(reply);
     setReply("");
+    setDisplay(false);
   };
 
   const replyLeft = 280 - reply.length;
-  //   console.log(textLeft);
+
   return (
     <div>
       <form className="new-tweet" onSubmit={newTweet}>
