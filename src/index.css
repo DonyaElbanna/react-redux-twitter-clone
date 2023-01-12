@@ -83,7 +83,6 @@ li {
   margin: 0 auto;
   border: 1px solid #dad7d7;
   border-radius: 3px;
-  cursor: pointer;
 }
 
 .tweet-info {
@@ -100,10 +99,13 @@ li {
 .tweet-info > div > span:nth-child(2) {
   color: #969696;
   font-size: 17px;
+  cursor: pointer;
 }
 .tweet-info > div > div {
   color: #969696;
-  font-size: 14px;
+  font-size: 15px;
+  /* font-weight: 600; */
+  /* width: 35px; */
 }
 .tweet-info > div > p {
   font-size: 18px;
@@ -148,25 +150,40 @@ li {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  height: 120px;
 }
 
 .textarea {
-  border-radius: 4px;
+  border-radius: 8px;
   border: 1px solid #dad7d7;
   padding: 10px;
-  font-size: 15px;
-  height: 100px;
+  font-size: 18px;
+  width: 95%;
+  resize: none;
 }
 
 .tweet-length {
   text-align: right;
-  margin-top: 10px;
-  font-size: 20px;
-  color: #c3392a;
+  position: relative;
+  bottom: 18px;
+  right: 11px;
+  font-size: 12px !important;
+  color: #c3392a !important;
+  height: 0;
 }
 
+.tweet-length-home {
+  text-align: right;
+  position: relative;
+  bottom: 23px;
+  right: 18px;
+  font-size: 12px !important;
+  color: #c3392a !important;
+  height: 0;
+}
 .icons {
   display: flex;
+  width: 35px;
 }
 
 .reply-span {
@@ -189,8 +206,9 @@ li {
 .add-icons {
   display: flex;
   align-items: center;
-  margin-top: 13px;
+  margin-top: 3px;
   gap: 20px;
+  cursor: pointer;
 }
 
 .add-icon {
@@ -289,12 +307,14 @@ li {
   margin-bottom: 10px;
   margin-right: 10px;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .home {
   display: flex;
   flex-direction: column;
   padding: 10px 32px 10px 10px;
+  border: none;
 }
 
 .home h2 {
@@ -308,6 +328,7 @@ li {
   color: #00b5d6;
   float: right;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .card {
@@ -346,6 +367,7 @@ li {
   left: 7px;
   transform: translateY(-50%);
   margin-right: 20px;
+  cursor: pointer;
 }
 
 input {
@@ -383,4 +405,30 @@ input:focus {
   font-weight: bold;
   cursor: pointer;
   margin-right: 50px;
+}
+
+.center-btn {
+  margin: 5px auto;
+}
+.reply {
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid #dad7d7;
+  padding: 10px;
+  font-size: 18px;
+  width: 97%;
+  resize: none;
+}
+
+textarea:focus {
+  border: 2px solid #00b5d6;
+  outline: none;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: auto;
 }

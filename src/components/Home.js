@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AiOutlinePicture,
   AiOutlineFileGif,
@@ -6,7 +6,21 @@ import {
 } from "react-icons/ai";
 import { BsTextLeft } from "react-icons/bs";
 import { HiOutlineEmojiHappy, HiOutlineSparkles } from "react-icons/hi";
-const AddTweet = () => {
+
+const Home = () => {
+  const [tweet, setTweet] = useState("");
+
+  const handleChange = (e) => {
+    setTweet(e.target.value);
+  };
+  const addTweet = (e) => {
+    e.preventDefault();
+    console.log(tweet);
+    setTweet("");
+  };
+
+  const tweetLeft = 280 - tweet.length;
+
   return (
     <div>
       <div className="tweet home">
@@ -22,9 +36,16 @@ const AddTweet = () => {
           />
           <div className="tweet-info">
             <div>
-              <div style={{ fontSize: "18px", marginTop: "14px" }}>
-                What's happening?{" "}
-              </div>
+              <textarea
+                className="textarea"
+                placeholder="What's happening?"
+                value={tweet}
+                onChange={handleChange}
+                maxLength={280}
+              />
+              {tweetLeft <= 100 && (
+                <div className="tweet-length-home">{tweetLeft}</div>
+              )}
             </div>
             <div className="add-tweet">
               <div className="add-icons">
@@ -35,7 +56,7 @@ const AddTweet = () => {
                 <AiOutlineCalendar className="add-icon" />
               </div>
               <div className="add-icons">
-                <button>Chirp</button>
+                <button onClick={addTweet}>Chirp</button>
               </div>
             </div>
           </div>
@@ -45,4 +66,4 @@ const AddTweet = () => {
   );
 };
 
-export default AddTweet;
+export default Home;

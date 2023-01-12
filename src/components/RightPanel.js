@@ -9,7 +9,7 @@ const LeftPanel = () => {
 
   const profiles = useSelector((state) => state.profiles);
   const profilesArr = Object.values(profiles);
-  console.log(profilesArr);
+  // console.log(profilesArr);
 
   return (
     <div className="right-panel">
@@ -51,7 +51,7 @@ const LeftPanel = () => {
             <div className="follow-info">
               <div>
                 <span>{profile.name}</span>
-                <div style={{ fontSize: "inherit", color: "#717171" }}>
+                <div style={{ fontSize: "inherit", color: "#717171", cursor: "pointer" }}>
                   {profile.handle}
                 </div>
               </div>

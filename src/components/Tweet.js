@@ -1,16 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { formatTweet, formatDate } from "../utils/helpers";
+import { asyncToggleTweet } from "../actions/tweets";
 import { FaRegComment } from "react-icons/fa";
 import { AiOutlineRetweet } from "react-icons/ai";
-import { TiHeartOutline } from "react-icons/ti";
-import { TiHeartFullOutline } from "react-icons/ti";
-import {BsCircleFill} from "react-icons/bs";
-import {BsShareFill} from "react-icons/bs";
+import { TiHeartOutline, TiHeartFullOutline } from "react-icons/ti";
+import { BsCircleFill, BsShareFill } from "react-icons/bs";
+import NewTweet from "./NewTweet";
 
 const Tweet = ({ tweet }) => {
   const state = useSelector((state) => state);
   const parentTweet = useSelector((state) => state.tweets[tweet.replyingTo]);
+  const dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
   //   console.log(parentTweet)
   tweet = formatTweet(
     tweet,
@@ -23,7 +25,7 @@ const Tweet = ({ tweet }) => {
   const {
     avatar,
     hasLiked,
-    // id,
+    id,
     likes,
     name,
     parent,
@@ -40,57 +42,72 @@ const Tweet = ({ tweet }) => {
 
   const likeTweet = (e) => {
     e.preventDefault();
-    console.log("like");
+
+    dispatch(
+      asyncToggleTweet({
+        id: id,
+        hasLiked: tweet.hasLiked,
+        authedUser: state.authedUser,
+      })
+    );
+  };
+
+  const showNewTweet = () => {
+    setVisible(!visible);
   };
 
   return (
-    <div className="tweet">
-      <img src={avatar} alt={name + "'s avatar"} className="avatar" />
-      <div className="tweet-info">
-        <div>
-          <span>{name}</span>
-          <span>@{authorID}</span>
-          <BsCircleFill style={{ fontSize: "4px", margin: "3px" }}/>
-          <span className="time-span">{formatDate(timestamp)}</span>
+    <div>
+      <div className="tweet">
+        <img src={avatar} alt={name + "'s avatar"} className="avatar" />
+        <div className="tweet-info">
           <div>
-          {parent && (
-            <button
-              className="replying-to"
-              onClick={(e) => toParent(e, parent.id)}
-            >
-              replying to @{parent.author}
-            </button>
-          )}
+            <span>{name}</span>
+            <span>@{authorID}</span>
+            <BsCircleFill style={{ fontSize: "4px", margin: "3px" }} />
+            <span className="time-span">{formatDate(timestamp)}</span>
+            <div>
+              {parent && (
+                <button
+                  className="replying-to"
+                  onClick={(e) => toParent(e, parent.id)}
+                >
+                  replying to @{parent.author}
+                </button>
+              )}
+            </div>
+            <p>{text}</p>
           </div>
-          <p>{text}</p>
-        </div>
 
-        <div className="tweet-icons">
-          <div className="icons">
-            <FaRegComment
-              style={{ fontSize: "22px", marginRight: "3px" }}
-              className="tweet-icon"
-            />
-            <span className="reply-span">{replies !== 0 && replies}</span>
-          </div>
-          <div className="icons">
-            <AiOutlineRetweet className="tweet-icon" />
-          </div>
-          <div className="icons">
-            {hasLiked ? (
-              <TiHeartFullOutline
-                color="#e0245e"
+          <div className="tweet-icons">
+            <div className="icons">
+              <FaRegComment
+                style={{ fontSize: "22px", marginRight: "3px" }}
                 className="tweet-icon"
-                onClick={likeTweet}
+                onClick={showNewTweet}
               />
-            ) : (
-              <TiHeartOutline className="tweet-icon" onClick={likeTweet} />
-            )}
-            <span className="heart-span">{likes !== 0 && likes}</span>
+              <span className="reply-span">{replies !== 0 && replies}</span>
+            </div>
+            <div className="icons">
+              <AiOutlineRetweet className="tweet-icon" />
+            </div>
+            <div className="icons">
+              {hasLiked ? (
+                <TiHeartFullOutline
+                  color="#e0245e"
+                  className="tweet-icon"
+                  onClick={(e) => likeTweet(e, tweet.id)}
+                />
+              ) : (
+                <TiHeartOutline className="tweet-icon" onClick={likeTweet} />
+              )}
+              <span className="heart-span">{likes !== 0 && likes}</span>
+            </div>
+            <BsShareFill style={{ fontSize: "20px" }} className="tweet-icon" />
           </div>
-            <BsShareFill style={{fontSize: "20px"}} className="tweet-icon"/>
         </div>
       </div>
+      {visible && <NewTweet />}
     </div>
   );
 };

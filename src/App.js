@@ -33,7 +33,6 @@ function App() {
       ) : (
         <div className="display">
           <LeftPanel />
-
           <TweetList tweetsArr={tweets} />
           <RightPanel />
         </div>
