@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { handleInitialData } from "./actions/shared";
 import TweetList from "./components/TweetList";
 import HashLoader from "react-spinners/HashLoader";
-// import AddTweet from "./components/AddTweet";
 import LeftPanel from "./components/LeftPanel";
 import RightPanel from "./components/RightPanel";
 
@@ -34,9 +33,9 @@ function App() {
       ) : (
         <div className="display">
           <LeftPanel />
-          
+
           <TweetList tweetsArr={tweets} />
-          <RightPanel/>
+          <RightPanel />
         </div>
       )}
     </div>

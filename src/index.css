@@ -3,11 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
   color: #252525;
+  font-size: 18px;
 }
 
 a {
   text-decoration: none;
-  color: #252525;
+  padding: 10px 20px;
 }
 
 .container {
@@ -92,14 +93,13 @@ li {
   width: 100%;
 }
 
-/* Hacky but less typing in the video */
 .tweet-info > div > span:first-child {
   font-weight: bold;
   margin-right: 5px;
 }
 .tweet-info > div > span:nth-child(2) {
   color: #969696;
-  font-size: 15px;
+  font-size: 17px;
 }
 .tweet-info > div > div {
   color: #969696;
@@ -134,7 +134,7 @@ li {
   padding: 0;
   color: #969696;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .heart-button {
@@ -165,7 +165,6 @@ li {
   color: #c3392a;
 }
 
-/*  */
 .icons {
   display: flex;
 }
@@ -190,7 +189,6 @@ li {
 .add-icons {
   display: flex;
   align-items: center;
-  /* justify-content: flex-start; */
   margin-top: 13px;
   gap: 20px;
 }
@@ -218,7 +216,6 @@ li {
 
 .left-panel {
   width: 20%;
-  margin: 2% 1% 0 4%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -233,31 +230,111 @@ li {
 }
 
 .left-icon {
-  font-size: 20px;
+  font-size: 22px;
   margin-top: 12%;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .display {
   display: flex;
+  padding: 2.5% 0;
+}
+
+.middle-panel {
+  width: 50%;
 }
 
 .right-panel {
-  width: 30%;
-  margin: 2% 0 1% 4%;
+  width: 27%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .right-panel img {
-  width: 30px;
+  float: right;
+  max-width: 100px;
+  max-height: 150px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.card-text {
+  float: left;
+  font-size: 17px;
+}
+
+.hashtag {
+  color: #747474;
+}
+
+.card-wrapper {
+  border-radius: 15px;
+  width: 94%;
+  background-color: #d7d3d38c;
+  padding: 15px;
+}
+
+.card-wrapper h3 {
+  padding-left: 8px;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.card-icon {
+  color: #00b5d6;
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 32px 10px 10px;
+}
+
+.home h2 {
+  display: inline-block;
+  padding-left: 25px;
+  padding-bottom: 10px;
+  margin: 0px;
+}
+
+.home .icon {
+  color: #00b5d6;
+  float: right;
+  font-size: 24px;
 }
 
 .card {
-  margin-bottom: 20px;
   display: flex;
+  border: 1px solid #dad7d7;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.card > div > span:nth-of-type(1) {
+  font-size: 16px;
+}
+
+.card > div > span:nth-of-type(2) {
+  color: #717171;
 }
 
 .wrapper {
   position: relative;
+  width: 100%;
 }
 
 .search-icon {
@@ -266,13 +343,44 @@ li {
   position: absolute;
   box-sizing: border-box;
   top: 50%;
-  left: 5px;
+  left: 7px;
   transform: translateY(-50%);
   margin-right: 20px;
 }
 
-.input {
-  padding: 4px 0 4px 30px;
-  box-sizing: border-box;;
+input {
+  padding: 7px 0 7px 30px;
+  box-sizing: border-box;
   border-radius: 20px;
+  border: 2px solid #b9b4b4;
+  width: 95%;
+  background-color: #dad7d7;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: #969696;
+}
+
+input:focus {
+  border: 2px solid #00b5d6;
+  outline: none;
+}
+
+.follow-info {
+  margin: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.follow-btn > button {
+  background-color: white;
+  border: 2px solid #00b5d6;
+  color: #00b5d6;
+  padding: 5px 7px;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 50px;
 }
