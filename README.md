@@ -13,6 +13,7 @@ A twitter clone app.
 - [React-Redux](https://react-redux.js.org/)
 - [Redux](https://redux.js.org/)
 - [Redux-Thunk](https://github.com/reduxjs/redux-thunk)
+- [React-Router](https://reactrouter.com/en/main)
 - [React Spinners](https://www.davidhu.io/react-spinners/)
 - [React icons](https://react-icons.github.io/react-icons/)
 

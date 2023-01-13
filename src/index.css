@@ -286,6 +286,7 @@ li {
   max-height: 100px;
   border-radius: 5px;
   margin-left: 10px;
+  object-fit: cover;
 }
 
 .follow-img {
@@ -493,4 +494,18 @@ button[disabled] {
 
 .tweet-page {
   margin: 2%;
+}
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  word-break: normal;
 }

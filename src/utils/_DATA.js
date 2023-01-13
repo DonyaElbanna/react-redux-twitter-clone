@@ -225,59 +225,6 @@ let tweets = {
   },
 };
 
-let news = {
-  CNN: {
-    author: "CNN",
-    name: "Trending",
-    image: "https://www.nasa.gov/sites/default/files/751061main_ringneb.jpg",
-    title: "The Hubble Space Telescope",
-    text: "may have solved a new mystery",
-    hashtag: "#Astrophysics",
-  },
-  Entertainment: {
-    author: "Entertainment",
-    name: "LIVE",
-    image: null,
-    title: "#TheNuggetsShow",
-    text: "2,000 chirps",
-    hashtag: null,
-  },
-  BBC: {
-    author: "BBC",
-    name: "Trending",
-    image:
-      "https://ichef.bbci.co.uk/news/976/cpsprodpb/10AB3/production/_128257286_gettyimages-1455580067.jpg.webp",
-    title: "Storms relentless",
-    text: "as California drenching goes on",
-    hashtag: null,
-  },
-  worldwide: {
-    author: "Worldwide ",
-    name: "Trending",
-    image: null,
-    title: "#WorldNews",
-    text: "125K Chirps",
-    hashtag: "5,049 people are chirping about this",
-  },
-};
-
-let profiles = {
-  userOne: {
-    name: "John Doe",
-    avatar: "https://i.postimg.cc/K8Zzmdzj/1.jpg",
-    handle: "@john_doe",
-  },
-  userTwo: {
-    name: "Cendy Baker",
-    avatar: "https://i.postimg.cc/cJz4MCct/3.jpg",
-    handle: "@cendyyall",
-  },
-  userThress: {
-    name: "Donya E",
-    avatar: "https://i.postimg.cc/25ySZhnf/2.jpg",
-    handle: "@jonoco",
-  },
-};
 
 export function _getUsers() {
   return new Promise((res, rej) => {
@@ -288,18 +235,6 @@ export function _getUsers() {
 export function _getTweets() {
   return new Promise((res, rej) => {
     setTimeout(() => res({ ...tweets }), 1000);
-  });
-}
-
-export function _getNews() {
-  return new Promise((res, rej) => {
-    setTimeout(() => res({ ...news }), 1000);
-  });
-}
-
-export function _getProfiles() {
-  return new Promise((res, rej) => {
-    setTimeout(() => res({ ...profiles }), 1000);
   });
 }
 
