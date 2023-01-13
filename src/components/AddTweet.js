@@ -9,7 +9,7 @@ import {
 import { BsTextLeft } from "react-icons/bs";
 import { HiOutlineEmojiHappy, HiOutlineSparkles } from "react-icons/hi";
 
-const Home = () => {
+const AddTweet = () => {
   const [tweet, setTweet] = useState("");
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div>
       <div className="tweet home">
-        <div>
+        <div className="header">
           <h2>Home</h2>
           <HiOutlineSparkles className="icon" />
         </div>
@@ -70,4 +70,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default AddTweet;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { asyncAddTweet } from "../actions/tweets";
-import {IoCloseSharp} from "react-icons/io5"
+import { IoCloseSharp } from "react-icons/io5";
 
-const NewTweet = ({ setDisplay, id, hideReply }) => {
+const Reply = ({ setDisplay, id, hideReply }) => {
   const [reply, setReply] = useState("");
   const dispatch = useDispatch();
 
@@ -13,13 +13,11 @@ const NewTweet = ({ setDisplay, id, hideReply }) => {
 
   const replyTweet = (e) => {
     e.preventDefault();
-    console.log(reply);
+    // console.log(reply);
     dispatch(asyncAddTweet(reply, id));
     // setReply("");
     setDisplay(false);
   };
-
-
 
   const replyLeft = 280 - reply.length;
 
@@ -45,4 +43,4 @@ const NewTweet = ({ setDisplay, id, hideReply }) => {
   );
 };
 
-export default NewTweet;
+export default Reply;

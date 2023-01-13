@@ -6,6 +6,14 @@ body {
   font-size: 18px;
 }
 
+.tweet-link {
+  text-decoration: none;
+  color: #252525;
+  padding: 0;
+  margin: 7px 0 5px 0;
+  font-size: 17.5px;
+}
+
 a {
   text-decoration: none;
   padding: 10px 20px;
@@ -110,6 +118,8 @@ li {
 .tweet-info > div > p {
   font-size: 18px;
   margin: 10px 0;
+  word-break: break-word;
+  cursor: pointer;
 }
 .tweet-icons {
   display: flex;
@@ -240,7 +250,7 @@ li {
 }
 
 .left-panel img {
-  width: 30px;
+  width: 35px;
 }
 
 .left-icons > :first-child {
@@ -248,15 +258,15 @@ li {
 }
 
 .left-icon {
-  font-size: 22px;
-  margin-top: 12%;
+  font-size: 19px;
+  margin-top: 10px;
   cursor: pointer;
   font-weight: 600;
 }
 
-.display {
+.dashboard {
   display: flex;
-  padding: 2.5% 0;
+  padding: 1% 0;
 }
 
 .middle-panel {
@@ -273,14 +283,19 @@ li {
 .right-panel img {
   float: right;
   max-width: 100px;
-  max-height: 150px;
+  max-height: 100px;
   border-radius: 5px;
   margin-left: 10px;
 }
 
+.follow-img {
+  margin: 0 !important;
+  margin-right: 8px !important;
+}
+
 .card-text {
   float: left;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .hashtag {
@@ -289,7 +304,7 @@ li {
 
 .card-wrapper {
   border-radius: 15px;
-  width: 94%;
+  width: 83%;
   background-color: #d7d3d38c;
   padding: 15px;
 }
@@ -313,7 +328,7 @@ li {
 .home {
   display: flex;
   flex-direction: column;
-  padding: 10px 32px 10px 10px;
+  padding: 0px 32px 10px 10px;
   border: none;
 }
 
@@ -369,14 +384,17 @@ li {
   margin-right: 20px;
   cursor: pointer;
 }
+.header {
+  margin-bottom: 6px;
+}
 
 input {
   padding: 7px 0 7px 30px;
   box-sizing: border-box;
   border-radius: 20px;
   border: 2px solid #b9b4b4;
-  width: 95%;
-  background-color: #dad7d7;
+  width: 90%;
+  background-color: #d7d3d38c;
   font-size: 16px;
 }
 
@@ -390,18 +408,19 @@ input:focus {
 }
 
 .follow-info {
-  margin: 10px;
+  margin: 7px 0;
   display: flex;
   width: 100%;
   justify-content: space-between;
+  font-size: 16px;
 }
 .follow-btn > button {
   background-color: white;
   border: 2px solid #00b5d6;
   color: #00b5d6;
-  padding: 5px 7px;
+  padding: 3px 5px;
   border-radius: 20px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   margin-right: 50px;
@@ -454,4 +473,24 @@ button[disabled] {
   color: #00b5d6;
   font-size: 25px;
   cursor: pointer;
+}
+
+.follow-card {
+  padding: 10px;
+  display: flex;
+  border-top: 1px solid #dad7d7;
+  border-radius: 3px;
+}
+
+.home-btn {
+  color: #00b5d6;
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 5%;
+  left: 2%;
+}
+
+.tweet-page {
+  margin: 2%;
 }

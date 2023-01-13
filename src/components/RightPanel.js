@@ -42,16 +42,22 @@ const LeftPanel = () => {
       <div className="card-wrapper">
         <h3>Who to follow</h3>
         {profilesArr.map((profile, id) => (
-          <div className="tweet" key={id}>
+          <div className="follow-card" key={id}>
             <img
               src={profile.avatar}
               alt={profile.name + "'s avatar"}
-              className="avatar"
+              className="avatar follow-img"
             />
             <div className="follow-info">
               <div>
                 <span>{profile.name}</span>
-                <div style={{ fontSize: "inherit", color: "#717171", cursor: "pointer" }}>
+                <div
+                  style={{
+                    fontSize: "inherit",
+                    color: "#717171",
+                    cursor: "pointer",
+                  }}
+                >
                   {profile.handle}
                 </div>
               </div>

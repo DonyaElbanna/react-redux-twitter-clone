@@ -1,6 +1,6 @@
 import React from "react";
 import Tweet from "./Tweet";
-import Home from "./Home";
+import AddTweet from "./AddTweet";
 
 const TweetList = ({ tweetsArr }) => {
   const orderedTweets = []
@@ -9,8 +9,8 @@ const TweetList = ({ tweetsArr }) => {
 
   return (
     <div className="middle-panel">
-      <Home />
-      <ul>
+      <AddTweet />
+      <ul style={{ marginTop: "0" }}>
         {orderedTweets.map((tweet) => (
           <li key={tweet.id}>
             <Tweet tweet={tweet} />
