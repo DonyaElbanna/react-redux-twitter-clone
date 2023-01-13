@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { asyncAddTweet } from "../actions/tweets";
 import {
   AiOutlinePicture,
   AiOutlineFileGif,
@@ -9,6 +11,7 @@ import { HiOutlineEmojiHappy, HiOutlineSparkles } from "react-icons/hi";
 
 const Home = () => {
   const [tweet, setTweet] = useState("");
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setTweet(e.target.value);
@@ -17,6 +20,7 @@ const Home = () => {
     e.preventDefault();
     console.log(tweet);
     setTweet("");
+    dispatch(asyncAddTweet(tweet));
   };
 
   const tweetLeft = 280 - tweet.length;

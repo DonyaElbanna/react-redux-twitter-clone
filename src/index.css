@@ -416,7 +416,7 @@ input:focus {
   border: 1px solid #dad7d7;
   padding: 10px;
   font-size: 18px;
-  width: 97%;
+  width: 95%;
   resize: none;
 }
 
@@ -431,4 +431,27 @@ button[disabled] {
   background-color: #cccccc;
   color: #666666;
   cursor: auto;
+}
+
+.reply-tweet {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+}
+
+.close-btn {
+  float: right;
+  color: #00b5d6;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.close-tweet-btn {
+  float: left;
+  color: #00b5d6;
+  font-size: 25px;
+  cursor: pointer;
 }

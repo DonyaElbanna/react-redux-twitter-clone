@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import { formatTweet, formatDate } from "../utils/helpers";
 import { asyncToggleTweet } from "../actions/tweets";
 import { FaRegComment } from "react-icons/fa";
@@ -7,12 +8,15 @@ import { TiHeartOutline, TiHeartFullOutline } from "react-icons/ti";
 import { BsCircleFill, BsShareFill } from "react-icons/bs";
 import NewTweet from "./NewTweet";
 import HideReply from "./HideReply";
+import ParentTweet from "./ParentTweet";
 
 const Tweet = ({ tweet }) => {
   const state = useSelector((state) => state);
   const parentTweet = useSelector((state) => state.tweets[tweet.replyingTo]);
   const dispatch = useDispatch();
 
+  const [displayParentTweet, setDisplayParentTweet] = useState(false);
+  const [userInfo, setUserInfo] = useState("");
   //   console.log(parentTweet)
   tweet = formatTweet(
     tweet,
@@ -21,6 +25,9 @@ const Tweet = ({ tweet }) => {
     parentTweet
   );
   // console.log(tweet);
+
+  // const formattedParentTweet = formatTweet(parentTweet, state.users[author],
+  //   state.authedUser,)
 
   const {
     avatar,
@@ -37,7 +44,10 @@ const Tweet = ({ tweet }) => {
 
   const toParent = (e, id) => {
     e.preventDefault();
-    console.log(id);
+    let userInfo = state.users[parentTweet.author];
+    console.log(parentTweet, state.users[parentTweet.author]);
+    setDisplayParentTweet(!displayParentTweet);
+    setUserInfo(userInfo);
   };
 
   const likeTweet = (e) => {
@@ -50,6 +60,10 @@ const Tweet = ({ tweet }) => {
         authedUser: state.authedUser,
       })
     );
+  };
+
+  const hideReply = () => {
+    setDisplay(false);
   };
 
   const { ref, display, setDisplay } = HideReply(false);
@@ -101,11 +115,33 @@ const Tweet = ({ tweet }) => {
               )}
               <span className="heart-span">{likes !== 0 && likes}</span>
             </div>
-            <BsShareFill style={{ fontSize: "20px" }} className="tweet-icon" />
+            <div className="icons">
+              <BsShareFill
+                style={{ fontSize: "20px" }}
+                className="tweet-icon"
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div ref={ref}>{display && <NewTweet setDisplay={setDisplay} />}</div>
+      <div ref={ref}>
+        {display && (
+          <>
+            <NewTweet setDisplay={setDisplay} id={id} hideReply={hideReply} />
+          </>
+        )}
+      </div>
+      {displayParentTweet && (
+        <ParentTweet
+          parentTweet={parentTweet}
+          formatDate={formatDate}
+          toParent={toParent}
+          setDisplay={setDisplay}
+          likeTweet={likeTweet}
+          userInfo={userInfo}
+          tweet={tweet}
+        />
+      )}
     </div>
   );
 };
