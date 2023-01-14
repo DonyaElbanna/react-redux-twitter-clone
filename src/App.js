@@ -4,7 +4,7 @@ import { handleInitialData } from "./actions/shared";
 import { Dashboard } from "./components/Dashboard";
 import HashLoader from "react-spinners/HashLoader";
 import TweetPage from "./components/TweetPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const state = useSelector((state) => state);
