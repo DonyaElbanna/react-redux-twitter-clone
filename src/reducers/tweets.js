@@ -30,7 +30,7 @@ export default function tweets(state = {}, action) {
         ...replyingTo,
       };
     case TOGGLE_TWEET:
-      console.log([action.id], state[action.id]);
+      // console.log([action.id], state[action.id]);
       return {
         ...state,
         [action.id]: {
@@ -64,15 +64,15 @@ export default function tweets(state = {}, action) {
       let parentTweetID = state[action.id].replyingTo
         ? state[action.id].replyingTo
         : null;
-      let parentTweet = state[parentTweetID];
-      console.log(
-        "deleted ID: ",
-        action.id,
-        "parentTweet ID: ",
-        parentTweetID,
-        "parentTweet: ",
-        parentTweet
-      );
+      // let parentTweet = state[parentTweetID];
+      // console.log(
+      //   "deleted ID: ",
+      //   action.id,
+      //   "parentTweet ID: ",
+      //   parentTweetID,
+      //   "parentTweet: ",
+      //   parentTweet
+      // );
       state = convertArrayToObject(newState, "id");
 
       if (!parentTweetID) {

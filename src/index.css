@@ -510,6 +510,8 @@ button[disabled] {
   word-break: normal;
 }
 
-.delete-icon {
-  float: right
+#delete-icon {
+  float: right;
+  color: #00b5d6;
+  cursor: pointer;
 }

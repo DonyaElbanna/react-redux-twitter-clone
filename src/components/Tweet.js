@@ -10,6 +10,7 @@ import { MdDelete } from "react-icons/md";
 import Reply from "./Reply";
 import HideReply from "./HideReply";
 import { Link } from "react-router-dom";
+import { Tooltip } from 'react-tooltip'
 
 const Tweet = ({ tweet }) => {
   const state = useSelector((state) => state);
@@ -67,13 +68,17 @@ const Tweet = ({ tweet }) => {
     <div>
       <div className="tweet" >
         <img src={avatar} alt={name + "'s avatar"} className="avatar" />
-        {state.authedUser === authorID && <MdDelete className="delete-icon" onClick={handleDeleteTweet}/>}
+        
         <div className="tweet-info">
+        
           <div>
             <span>{name}</span>
             <span>@{authorID}</span>
             <BsCircleFill style={{ fontSize: "4px", margin: "3px" }} />
             <span className="time-span">{formatDate(timestamp)}</span>
+            {state.authedUser === authorID && <MdDelete id="delete-icon" onClick={handleDeleteTweet} data-tooltip-content="Delete Chirp"/>}
+            <Tooltip  anchorId="delete-icon" content="Delete Chirp"/>
+
             <div>
               {parent && (
                 <div className="replying-to">
