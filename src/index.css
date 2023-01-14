@@ -509,3 +509,7 @@ button[disabled] {
   word-wrap: normal !important;
   word-break: normal;
 }
+
+.delete-icon {
+  float: right
+}

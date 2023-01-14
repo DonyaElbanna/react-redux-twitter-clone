@@ -1,4 +1,9 @@
-import { RECEIVE_TWEETS, TOGGLE_TWEET, ADD_TWEET } from "../actions/tweets";
+import {
+  RECEIVE_TWEETS,
+  TOGGLE_TWEET,
+  ADD_TWEET,
+  DELETE_TWEET,
+} from "../actions/tweets";
 
 export default function tweets(state = {}, action) {
   switch (action.type) {
@@ -25,6 +30,7 @@ export default function tweets(state = {}, action) {
         ...replyingTo,
       };
     case TOGGLE_TWEET:
+      console.log([action.id], state[action.id]);
       return {
         ...state,
         [action.id]: {
@@ -37,6 +43,54 @@ export default function tweets(state = {}, action) {
               : state[action.id].likes.concat([action.authedUser]),
         },
       };
+
+    case DELETE_TWEET:
+      let newState = Object.values(state).filter(
+        (tweet) => tweet.id !== action.id
+      );
+
+      // let newReplies = state[state[action.id].replyingTo].replies.filter((reply) => reply !== action.id)
+
+      const convertArrayToObject = (array, key) => {
+        const initialValue = {};
+        return array.reduce((obj, item) => {
+          return {
+            ...obj,
+            [item[key]]: item,
+          };
+        }, initialValue);
+      };
+
+      let parentTweetID = state[action.id].replyingTo
+        ? state[action.id].replyingTo
+        : null;
+      let parentTweet = state[parentTweetID];
+      console.log(
+        "deleted ID: ",
+        action.id,
+        "parentTweet ID: ",
+        parentTweetID,
+        "parentTweet: ",
+        parentTweet
+      );
+      state = convertArrayToObject(newState, "id");
+
+      if (!parentTweetID) {
+        return { ...state };
+      } else {
+        return {
+          ...state,
+          [parentTweetID]: {
+            ...state[parentTweetID],
+            replies:
+              parentTweetID && state[parentTweetID].replies.includes(action.id)
+                ? state[parentTweetID].replies.filter(
+                    (reply) => reply !== action.id
+                  )
+                : state[parentTweetID],
+          },
+        };
+      }
     default:
       return state;
   }

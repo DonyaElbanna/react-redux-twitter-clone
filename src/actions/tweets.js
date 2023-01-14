@@ -2,6 +2,7 @@ import { saveLikeToggle, saveTweet } from "../utils/api";
 export const RECEIVE_TWEETS = "RECEIVE_TWEETS";
 export const TOGGLE_TWEET = "TOGGLE_TWEET";
 export const ADD_TWEET = "ADD_TWEET";
+export const DELETE_TWEET = "DELETE_TWEET";
 
 export function receiveTweets(tweets) {
   return {
@@ -24,6 +25,13 @@ function toggleTweet({ id, authedUser, hasLiked }) {
     authedUser,
     hasLiked,
   };
+}
+
+export function deleteTweet({id}) {
+  return {
+    type: DELETE_TWEET,
+    id,
+  }
 }
 
 export function asyncAddTweet(text, replyingTo) {

@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 // import { useState } from "react";
 import { formatTweet, formatDate } from "../utils/helpers";
-import { asyncToggleTweet } from "../actions/tweets";
+import { asyncToggleTweet, deleteTweet } from "../actions/tweets";
 import { FaRegComment } from "react-icons/fa";
 import { AiOutlineRetweet } from "react-icons/ai";
 import { TiHeartOutline, TiHeartFullOutline } from "react-icons/ti";
 import { BsCircleFill, BsShareFill } from "react-icons/bs";
+import { MdDelete } from "react-icons/md";
 import Reply from "./Reply";
 import HideReply from "./HideReply";
 import { Link } from "react-router-dom";
@@ -52,12 +53,21 @@ const Tweet = ({ tweet }) => {
     setDisplay(false);
   };
 
+  const handleDeleteTweet = () => {
+    dispatch(deleteTweet(tweet));
+  };
+
+// const showID = (id) => {
+//   console.log(tweet.id)
+// }
+
   const { ref, display, setDisplay } = HideReply(false);
 
   return (
     <div>
-      <div className="tweet">
+      <div className="tweet" >
         <img src={avatar} alt={name + "'s avatar"} className="avatar" />
+        {state.authedUser === authorID && <MdDelete className="delete-icon" onClick={handleDeleteTweet}/>}
         <div className="tweet-info">
           <div>
             <span>{name}</span>
