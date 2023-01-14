@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-redux-twitter-clone/static/css/main.97a468e5.css",
+    "main.js": "/react-redux-twitter-clone/static/js/main.6e9427d2.js",
+    "static/media/chirper.png": "/react-redux-twitter-clone/static/media/chirper.efe28446128563074151.png",
+    "index.html": "/react-redux-twitter-clone/index.html",
+    "main.97a468e5.css.map": "/react-redux-twitter-clone/static/css/main.97a468e5.css.map",
+    "main.6e9427d2.js.map": "/react-redux-twitter-clone/static/js/main.6e9427d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97a468e5.css",
+    "static/js/main.6e9427d2.js"
+  ]
+}
